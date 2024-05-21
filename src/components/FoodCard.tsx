@@ -16,15 +16,15 @@ const FoodCard = ({ item, onPress, onDelete, onEdit }) => {
       <View style={styles.cardHeader}>
         <View style={styles.iconsContainer}>
           <TouchableOpacity onPress={handleEdit}>
-            <Ionicons name="create" size={24} color="blue" />
+            <Ionicons name="create" size={30} color="blue"/>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleDelete}>
-            <Ionicons name="trash" size={24} color="red" />
+            <Ionicons name="trash" size={30} color="red" />
           </TouchableOpacity>
         </View>
       </View>
       <Text style={styles.foodName}>{item.name}</Text>
-      <Text>{item.recipe}</Text>
+      <Text style={styles.recipe} numberOfLines={3} ellipsizeMode="tail"> {item.recipe}</Text>
       <TouchableOpacity onPress={onPress}>
         <Text style={styles.viewMore}>View More</Text>
       </TouchableOpacity>
@@ -35,12 +35,14 @@ const FoodCard = ({ item, onPress, onDelete, onEdit }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: '100%',
+    width: 170,
+    height:200,
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
+    overflow: 'hidden',
    },
    cardHeader: {
     flexDirection: 'row',
@@ -48,17 +50,34 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   iconsContainer: {
+    width:"100%",
     flexDirection: 'row',
+    justifyContent:"space-between"
   },
   foodName: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 5,
+    textAlign:"center"
+
+  },
+  recipe:{
+    fontSize: 18,
+    marginBottom: 5,
+    marginTop:5,
+    textAlign:"center",
+    height: 60, 
+    overflow: 'hidden', 
+
   },
   viewMore: {
     color: 'blue',
-    marginTop: 5,
+    fontSize:20,
+    textAlign:"center"
   },
+  icons:{
+
+  }
 });
 
 export default FoodCard;

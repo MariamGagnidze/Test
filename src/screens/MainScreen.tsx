@@ -75,6 +75,9 @@ const MainScreen = () => {
           />
         )}
         keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
+        key={(state.selectedCategory || 'all') + '2'}  
+        columnWrapperStyle={styles.row}
       />
       <TouchableOpacity
         style={styles.addButton}
@@ -109,17 +112,27 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     marginBottom: 20,
+    width:"100%"
   },
   categoryButton: {
     backgroundColor: '#ddd',
-    padding: 10,
-    borderRadius: 5,
+    padding: 5,
+    borderRadius: 10,
     margin: 5,
     textAlign: 'center',
+    width:85,
+    height:40,
+    fontSize:17,
+  
   },
   selectedCategoryButton: {
     backgroundColor: 'blue',
     color: 'white',
+  },
+  row: {
+    flex: 1,
+    justifyContent: "space-between",
+    gap:30
   },
 });
 
